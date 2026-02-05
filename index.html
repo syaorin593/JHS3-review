@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Power Up Tower</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="game-app">
+        <div id="screen-title" class="screen">
+            <h1 class="main-title">ENGLISH<br>POWER UP TOWER</h1>
+            <p class="sub-title">中1復習編：ダミーを見抜いて正解を作れ！</p>
+            <div class="score-board">BEST RECORD: <span id="best-score">0</span> Pt</div>
+            <button class="btn-start" onclick="startGame()">MISSION START</button>
+        </div>
+
+        <div id="screen-game" class="screen hidden">
+            <div class="game-header">
+                <span id="question-count">STAGE 1 / 10</span>
+                <span id="score-display">Score: 0</span>
+            </div>
+            <div class="progress-bar"><div id="progress-fill"></div></div>
+            
+            <div class="question-box">
+                <div id="q-category" class="category-badge">Category</div>
+                <p id="q-text">Loading...</p>
+                <p id="q-sub-text" class="sub-text"></p>
+            </div>
+
+            <div id="area-choice" class="input-area hidden">
+                <div id="choices-grid" class="choices-grid"></div>
+            </div>
+
+            <div id="area-sort" class="input-area hidden">
+                <div id="sort-answer-box"></div>
+                <div id="sort-pool-box"></div>
+                <div class="sort-controls">
+                    <button class="btn-small" onclick="resetSort()">リセット</button>
+                    <button class="btn-submit" onclick="checkSortAnswer()">決定</button>
+                </div>
+            </div>
+
+            <div id="area-type" class="input-area hidden">
+                <input type="text" id="type-input" placeholder="ここに入力..." autocomplete="off">
+                <button class="btn-submit" onclick="checkTypeAnswer()">回答する</button>
+            </div>
+
+            <div id="feedback-area" class="hidden">
+                <div class="feedback-content">
+                    <h2 id="feedback-title"></h2>
+                    <div id="feedback-detail"></div>
+                    <button class="btn-next" onclick="nextQuestion()">NEXT STAGE ➡</button>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px;">
+                <button class="btn-back" onclick="backToTitle()">タイトルへ戻る</button>
+            </div>
+        </div>
+
+        <div id="screen-result" class="screen hidden">
+            <h2>MISSION REPORT</h2>
+            <div class="result-score"><span id="final-score">0</span> Pt</div>
+            <p id="result-comment">Assessment...</p>
+            <div id="review-list"></div>
+            
+            <button class="btn-retry" onclick="startGame()">RETRY MISSION</button>
+            
+            <div style="margin-top: 15px;">
+                <button class="btn-back" onclick="backToTitle()">タイトルへ戻る</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
